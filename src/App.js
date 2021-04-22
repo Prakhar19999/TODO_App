@@ -40,37 +40,37 @@ function App() {
   }
 
   return (
-    <div 
-    className="App"
-    style={{
-      display:"flex",
-      flexDirection:"column",
-      justifyContent:"center",
-      alignItems:"center",
-    }}>
-      <div>
+    <div className="App">
+      <div 
+      style={{
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        alignItems:"center",
+        width:'100%', 
+      }}>
         <h1>TODO List</h1>
         <form>
           <TextField 
             id="outlined-basic" 
             label="Write a todo"
             value={todoInput} 
-            variant="outlined" 
-            style={{maxWidth:"500px",width:"90vm"}}
+            variant="outlined"
+            style={{width:"90vm",maxWidth:"500px"}}
             onChange={(e)=>setTodoInput(e.target.value)}/>
           <Button type="submit"
                   variant="contained" 
                   onClick={addTodo}
                   style={{display:"none"}}>Submit</Button>
         </form>
-
-        {todos.map((todo)=>(
-          <TodoListItem 
-            todo={todo.todo}
-            inprogress={todo.inprogress}
-            id={todo.id}/>
-          ))}
-
+        <div style={{width:"90vm",maxWidth:"500px",marginTop:"24px"}}>
+          {todos.map((todo)=>(
+              <TodoListItem 
+                todo={todo.todo}
+                inprogress={todo.inprogress}
+                id={todo.id}/>
+              ))}
+        </div>
         </div>
     </div>
   );

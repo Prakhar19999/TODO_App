@@ -10,13 +10,16 @@ import { db } from './firebase_config';
             inprogress:!inprogress,
         })
     }
+    function deleteTodos(){
+        db.collection("todos").doc(id).delete();
+    }
      return(
          <div style={{display:"flex"}}>
              <ListItem>
                     <ListItemText primary={todo} secondary={inprogress?"In Progress":"Completed"}/>
              </ListItem>
              <Button onClick={toggleInProgress}>{inprogress ? "Done":"Undone"}</Button>
-             <Button>X</Button>
+             <Button onClick={deleteTodos}>X</Button>
          </div>
      );
  }
