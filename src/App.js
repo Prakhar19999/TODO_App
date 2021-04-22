@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useEffect, useState } from 'react';
 import {db} from './firebase_config';
 import firebase from 'firebase'
+import TodoListItem from './Todo';
 
 function App() {
 
@@ -64,8 +65,11 @@ function App() {
         </form>
 
         {todos.map((todo)=>(
-          <p>{todo.todo}</p>
-        ))}
+          <TodoListItem 
+            todo={todo.todo}
+            inprogress={todo.inprogress}
+            id={todo.id}/>
+          ))}
 
         </div>
     </div>
